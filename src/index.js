@@ -10,8 +10,8 @@ import { fetchAuthors, fetchBooks } from "./redux/actions";
 
 import store from "./redux";
 
-store.dispatch(fetchAllAuthors());
-store.dispatch(fetchAllBooks());
+store.dispatch(fetchAuthors());
+store.dispatch(fetchBooks());
 
 ReactDOM.render(
   <Provider store={store}>
