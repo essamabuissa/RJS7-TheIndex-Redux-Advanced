@@ -4,11 +4,21 @@ import { BrowserRouter } from "react-router-dom";
 import registerServiceWorker from "./registerServiceWorker";
 
 import App from "./App";
+import { Provider } from "react-redux";
+
+import { fetchAuthors, fetchBooks } from "./redux/actions";
+
+import store from "./redux";
+
+store.dispatch(fetchAllAuthors());
+store.dispatch(fetchAllBooks());
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById("root")
 );
 registerServiceWorker();

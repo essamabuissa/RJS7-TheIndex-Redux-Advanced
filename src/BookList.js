@@ -3,6 +3,7 @@ import React, { Component } from "react";
 // Components
 import SearchBar from "./SearchBar";
 import BookTable from "./BookTable";
+import { connect } from "react-redux";
 
 class BookList extends Component {
   state = {
@@ -35,5 +36,11 @@ class BookList extends Component {
     );
   }
 }
+const mapStateToProps = state => {
 
-export default BookList;
+  return {
+
+    books: state.booksState.books
+  }
+}
+export default connect(mapStateToProps)(BookList);
